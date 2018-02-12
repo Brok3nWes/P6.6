@@ -23,20 +23,23 @@ public class P66 {
         List<Integer> values = new ArrayList<Integer>();
 
         int nr = 0;
-
+        int rekennr = 0;
         int actief = 1;
+        int tussengetal = 0;
+        int optelling = 0;
+        int teken = 0;
 
         Scanner input = new Scanner(System.in);
 
 
         while(actief == 1) {
-
+            System.out.println("Voer getallen in:");
         int ingetal = input.nextInt();
        
         if (ingetal > 0){
         values.add(nr, ingetal);
 
-        System.out.println("Het " + (nr+1) + "e getal is " + values.get(nr) + " Je hebt nu " + values.size() + " getallen ingevoerd.");
+        System.out.println("Het " + values.size() + "e getal is " + values.get(nr) + " Je hebt nu " + values.size() + " getallen ingevoerd.");
 
         nr++;
         }
@@ -45,17 +48,44 @@ public class P66 {
 
         actief = 0;
 
-        System.out.println("Dikke henk");
+        
 
         }
 
 
         while(actief == 0) {
-               System.out.println("you fucked up");
-               goThroughVals(values);
                
+               //goThroughVals(values);
+               
+                if(rekennr == 0){
+                  optelling = values.get(rekennr) - values.get(rekennr+1);
+               rekennr++;
+               teken = 0; 
+               } else {
+               
+               if (teken == 0 && rekennr < values.size()-1 ) {
+                optelling = optelling + values.get(rekennr+1);   
+               rekennr++;
+                teken = 1;
+               }
+               
+                                 
+               if (teken == 1 && rekennr < values.size()-1 ) {
+                optelling = optelling - values.get(rekennr+1);
+               rekennr++;
+               teken = 0;    
+               }
+                   
+               System.out.println("Het antwoord is " + optelling);
+               System.out.println("-----------------------------");
                actief = 1;
+               values.clear();
+               nr = 0;
+               rekennr = 0;
+               optelling = 0;
+               teken = 0;
                     }
+        }
             }
 
 
