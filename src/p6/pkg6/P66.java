@@ -5,7 +5,6 @@
  */
 package p6.pkg6;
 import java.util.ArrayList;
-import static java.util.Collections.list;
 import java.util.List;
 import java.util.Scanner;
 
@@ -25,7 +24,6 @@ public class P66 {
         int nr = 0;
         int rekennr = 0;
         int actief = 1;
-        int tussengetal = 0;
         int optelling = 0;
         int teken = 0;
 
